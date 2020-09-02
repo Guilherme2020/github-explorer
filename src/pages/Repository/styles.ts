@@ -35,6 +35,7 @@ export const RepositoryInfo = styled.section`
     }
 
     div {
+      flex: 1;
       margin-left: 24px;
 
       strong {
@@ -48,27 +49,27 @@ export const RepositoryInfo = styled.section`
         margin-top: 4px;
       }
     }
+  }
 
-    ul {
-      display: flex;
-      list-style: none;
-      margin-top: 40px;
+  ul {
+    display: flex;
+    list-style: none;
+    margin-top: 40px;
 
-      li {
-        & + li {
-          margin-left: 80px;
-        }
-        strong {
-          display: block;
-          font-size: 36px;
-          color: #3d3d4d;
-        }
+    li {
+      & + li {
+        margin-left: 80px;
+      }
+      strong {
+        display: block;
+        font-size: 36px;
+        color: #3d3d4d;
+      }
 
-        span {
-          display: block;
-          margin-top: 4px;
-          color: #6c6c80;
-        }
+      span {
+        display: block;
+        margin-top: 4px;
+        color: #6c6c80;
       }
     }
   }
