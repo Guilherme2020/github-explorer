@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { Header, RepositoryInfo, Issues } from './styles';
+import { IssueFilter, RepositoryInfo, Issues } from './styles';
 import api from '../../services/api';
 import logoImg from '../../assets/logo.svg';
 
@@ -35,15 +35,29 @@ const Repository: React.FC = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
 
   const { params } = useRouteMatch<RepositoryParams>();
+  const [filters] = useState([
+    { state: 'all', label: 'Todas', active: true },
+    { state: 'open', label: 'Abertas', active: false },
+    { state: 'closed', label: 'Fechadas', active: false },
+  ]);
+  const [filterIndex, setFilterIndex] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     api.get(`repos/${params.repository}`).then(response => {
       setRepository(response.data);
     });
 
-    api.get(`repos/${params.repository}/issues`).then(response => {
-      setIssues(response.data);
-    });
+    api
+      .get(`repos/${params.repository}/issues`, {
+        params: {
+          state: filters[0].state,
+          per_page: 5,
+        },
+      })
+      .then(response => {
+        setIssues(response.data);
+      });
     // async function loadData(): Promise<void> {
     //   // const repository = await api.get(`repos/${params.repository}`);
     //   // const issues = await api.get(`repos/${params.repository}/issues`);
@@ -55,6 +69,23 @@ const Repository: React.FC = () => {
     // }
     // loadData();
   }, [params.repository]);
+  const loadIssues = async (filter: any) => {
+    const response = await api.get(`/repos/${params.repository}/issues`, {
+      params: {
+        state: filters[filter].state,
+        per_page: 5,
+        page,
+      },
+    });
+    console.log(response.data);
+    setIssues(response.data);
+  };
+
+  const handleFilterClick = async (filter: any) => {
+    setFilterIndex(filter);
+
+    loadIssues(filter);
+  };
 
   return (
     <>
@@ -94,6 +125,17 @@ const Repository: React.FC = () => {
           </ul>
         </RepositoryInfo>
       )}
+      <IssueFilter active={filterIndex}>
+        {filters.map((filter, index) => (
+          <button
+            type="button"
+            key={filter.label}
+            onClick={() => handleFilterClick(index)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </IssueFilter>
 
       <Issues>
         {issues.map(issue => (

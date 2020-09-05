@@ -55,6 +55,7 @@ export const RepositoryInfo = styled.section`
     display: flex;
     list-style: none;
     margin-top: 40px;
+    margin-bottom: 80px;
 
     li {
       & + li {
@@ -113,6 +114,38 @@ export const Issues = styled.div`
     svg {
       margin-left: auto;
       color: #cbcbd6;
+    }
+  }
+`;
+
+interface IssueFilterProps {
+  active: number;
+}
+export const IssueFilter = styled.div`
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  button {
+    border-radius: 4px;
+    outline: 0;
+    border: 0;
+    padding: 8px;
+    margin: 0 0.25rem;
+
+    width: 210px;
+    height: 53px;
+    border-radius: 40px;
+    border: 0;
+    background: #576574;
+    color: #fff;
+    font-weight: bold;
+    -webkit-transition: background-color 0.2ms;
+    transition: background-color 0.2ms;
+
+    &:nth-child(${(props: IssueFilterProps) => props.active + 1}) {
+      background: #04d361;
+      color: white;
     }
   }
 `;
