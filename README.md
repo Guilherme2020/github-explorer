@@ -13,7 +13,7 @@ This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketse
 -  [React-Icons](https://react-icons.netlify.com/)
 -  [ESLint](https://eslint.org/)
 
-## :rocket: Features
+## :rocket: Features Extras
 
  - Dark theme using Styled components
  - Implementation of filters in Issues Pages
