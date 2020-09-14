@@ -11,7 +11,7 @@ This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketse
 -  [Polished](https://polished.js.org/)
 -  [styled-components](https://www.styled-components.com/)
 -  [React-Icons](https://react-icons.netlify.com/)
--  [ESLint] [vceslint]
+-  [ESLint](https://eslint.org/)
 
 ## :rocket: Features
 
