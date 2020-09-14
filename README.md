@@ -1,3 +1,23 @@
+## Github Explorer
+
+## Technologies and Features
+
+This project was developed at the [RocketSeat GoStack Bootcamp](https://rocketseat.com.br/bootcamp) with the following technologies:
+
+-  [ReactJS](https://reactjs.org/)
+-  [Typescript](https://www.npmjs.com/package/@types/react)
+-  [React Router](https://github.com/ReactTraining/react-router)
+-  [Axios](https://github.com/axios/axios)
+-  [Polished](https://polished.js.org/)
+-  [styled-components](https://www.styled-components.com/)
+-  [React-Icons](https://react-icons.netlify.com/)
+-  [ESLint][vceslint]
+
+## :rocket: Features
+
+ - Dark theme using Styled components
+ - Implementation of filters in Issues Pages
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
